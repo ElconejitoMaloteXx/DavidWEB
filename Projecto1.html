@@ -15,7 +15,7 @@
       <nav>
         <a href="#inicio">Inicio</a>
         <a href="#torneos">Torneos</a>
-        <a href="#equipos">Equipos</a>
+        <a href="#coleccion">Colección</a>
         <a href="#contacto">Contacto</a>
       </nav>
     </div>
@@ -51,13 +51,27 @@
     </div>
   </section>
 
-  <section id="equipos" class="section-content">
-    <div class="container">
-      <h2>Equipos</h2>
-      <p>Conoce a los mejores equipos de baloncesto 3X3 de todo el mundo.</p>
-      <a href="#contacto" class="btn-main">Únete Ahora</a>
+  <section id="profesionales" class="section-content">
+  <div class="container">
+    <h2>Jugadores Profesionales</h2>
+    <p>Haz clic en un equipo para ver un jugador destacado:</p>
+
+    <div class="equipos-logos">
+      <img src="logos/Madrid.png" alt="Madrid" class="logo-equipo" data-equipo="Madrid" />
+      <img src="logos/Barcelona.png" alt="Barcelona" class="logo-equipo" data-equipo="Barcelona" />
+      <img src="logos/Valencia.png" alt="Valencia" class="logo-equipo" data-equipo="Valencia" />
+      <img src="logos/Sevilla.png" alt="Sevilla" class="logo-equipo" data-equipo="Sevilla" />
+      <img src="logos/Málaga.png" alt="Málaga" class="logo-equipo" data-equipo="Málaga" />
+      <img src="logos/Zaragoza.png" alt="Zaragoza" class="logo-equipo" data-equipo="Zaragoza" />
+      <img src="logos/Bilbao.png" alt="Bilbao" class="logo-equipo" data-equipo="Bilbao" />
+      <img src="logos/Gran Canaria.png" alt="Gran Canaria" class="logo-equipo" data-equipo="Gran Canaria" />
     </div>
-  </section>
+
+    <div id="jugador-profesional" class="jugador-info">
+      <p>Selecciona un equipo para ver su jugador.</p>
+    </div>
+  </div>
+</section>
 
   <section id="contacto" class="section-content">
     <div class="container">
@@ -76,6 +90,89 @@
       <p>&copy; 2025 3X3 Basketball. Todos los derechos reservados.</p>
     </div>
   </footer>
+
+<script>
+  const jugadores = [
+    {
+      nombre: "Pau Gasol",
+      dorsal: 16,
+      dni: "67890123F",
+      equipo: "Madrid",
+      logo: "logos/Madrid.png"
+    },
+    {
+      nombre: "Ricky Rubio",
+      dorsal: 9,
+      dni: "78901234G",
+      equipo: "Barcelona",
+      logo: "logos/Barcelona.png"
+    },
+    {
+      nombre: "Juan Carlos Navarro",
+      dorsal: 11,
+      dni: "89012345H",
+      equipo: "Valencia",
+      logo: "logos/Valencia.png"
+    },
+    {
+      nombre: "Marc Gasol",
+      dorsal: 33,
+      dni: "90123456I",
+      equipo: "Sevilla",
+      logo: "logos/Sevilla.png"
+    },
+    {
+      nombre: "Sergio Llull",
+      dorsal: 23,
+      dni: "01234567J",
+      equipo: "Málaga",
+      logo: "logos/Málaga.png"
+    },
+    {
+      nombre: "Rudy Fernández",
+      dorsal: 5,
+      dni: "11223344K",
+      equipo: "Zaragoza",
+      logo: "logos/Zaragoza.png"
+    },
+    {
+      nombre: "Felipe Reyes",
+      dorsal: 14,
+      dni: "22334455L",
+      equipo: "Bilbao",
+      logo: "logos/Bilbao.png"
+    },
+    {
+      nombre: "José Calderón",
+      dorsal: 8,
+      dni: "33445566M",
+      equipo: "Gran Canaria",
+      logo: "logos/Gran Canaria.png"
+    }
+  ];
+
+  document.querySelectorAll('.logo-equipo').forEach(logo => {
+    logo.addEventListener('click', () => {
+      const equipoSeleccionado = logo.dataset.equipo;
+      const jugador = jugadores.find(j => j.equipo === equipoSeleccionado);
+
+      if (jugador) {
+        document.getElementById("jugador-profesional").innerHTML = `
+          <div class="jugador-item">
+            <img src="${jugador.logo}" alt="${jugador.equipo}" class="jugador-logo" />
+            <div>
+              <strong>${jugador.nombre}</strong><br>
+              Dorsal: ${jugador.dorsal}<br>
+              Equipo: ${jugador.equipo}<br>
+              DNI: ${jugador.dni}
+            </div>
+          </div>
+        `;
+      }
+    });
+  });
+</script>
+
 
 </body>
 </html>
