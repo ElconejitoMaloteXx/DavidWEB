@@ -228,3 +228,40 @@ footer p {
 .section-imagen {
   padding: 20px 0;
 }
+
+.equipos-logos {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.logo-equipo {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.logo-equipo:hover {
+  transform: scale(1.1);
+  border-color: #3366cc;
+}
+
+.jugador-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #fff;
+  padding: 15px;
+  border-left: 4px solid #3366cc;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.jugador-logo {
+  width: 80px;
+  height: auto;
+}
